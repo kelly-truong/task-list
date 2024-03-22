@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff4f8;
+    height: 100vh;
+
+    h1 {
+        font-size: 36px;
+        padding: 24px 0;
+        color: #393e45;
+    }
+}
