@@ -7,7 +7,7 @@ const TaskForm = () => {
     const [tasks, setTasks] = useState([])
 
     useEffect(() => {
-        if (tasks.length === 0) {
+        if (tasks?.length === 0) {
             return
         }
         localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -15,7 +15,7 @@ const TaskForm = () => {
 
     useEffect(() => {
         const tasks = JSON.parse(localStorage.getItem('tasks'))
-        setTasks(tasks)
+        setTasks(tasks ?? [])
     }, [])
 
     const addTask = () => {
@@ -56,9 +56,9 @@ const TaskForm = () => {
 
             <ul>
                 <div className="no__tasks">
-                    {tasks.length === 0 && "Nothing to do :("}
+                    {(tasks?.length === 0 || !tasks) && "Nothing to do :("}
                 </div>
-                {tasks.map(task => (
+                {tasks?.map(task => (
                     <li className="task__box" >
                         <input
                             type="checkbox"
